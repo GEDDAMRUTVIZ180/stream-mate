@@ -1,0 +1,12 @@
+name: Keep Render Service Awake
+
+on:
+  schedule:
+    - cron: '*/14 * * * *'
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Render Service
+        run: curl -s https://streammate-signalling-server.onrender.com/health > /dev/null
